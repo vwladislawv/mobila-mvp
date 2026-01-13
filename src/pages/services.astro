@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  {
+    title: "Custom kitchens",
+    body: "Minimal cabinetry, floating islands, integrated lighting, and hardware that disappears."
+  },
+  {
+    title: "Wardrobes and dressing rooms",
+    body: "Soft-close systems, concealed lighting, and tailored compartments built to your wardrobe."
+  },
+  {
+    title: "Living room statement walls",
+    body: "Media walls, shelving, and architectural panels that anchor the space."
+  },
+  {
+    title: "Commercial interiors",
+    body: "Reception desks, hospitality bars, and retail fixtures with premium durability."
+  }
+];
+
+const steps = [
+  { title: "Discovery", body: "We review your goals, budget, and space constraints." },
+  { title: "Design", body: "Concepts, materials, and visualizations tailored to your brand." },
+  { title: "Fabrication", body: "Precision joinery built in-house with consistent quality checks." },
+  { title: "Installation", body: "We deliver, install, and finish on-site for a flawless result." }
+];
+---
+
+<BaseLayout title="Services" description="Full-service custom furniture design, fabrication, and installation.">
+  <section class="hero compact">
+    <div class="hero-text">
+      <p class="eyebrow">Services</p>
+      <h1>Crafted interiors with end-to-end care.</h1>
+      <p class="lede">
+        From concept to installation, our studio keeps every detail consistent. We guide you through
+        materials, finish samples, and spatial planning to ensure the final piece feels effortless.
+      </p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-image alt"></div>
+      <div class="hero-card-body">
+        <h3>What we build</h3>
+        <p>Project scopes range from single statement pieces to full-home installations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Core services</h2>
+      <p>Designed for modern living with an emphasis on clean details and usability.</p>
+    </div>
+    <div class="grid three">
+      {services.map((service) => (
+        <article class="card">
+          <h3>{service.title}</h3>
+          <p>{service.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <h2>Our process</h2>
+      <p>
+        We keep everything transparent with structured milestones and weekly updates, so you always
+        know what is happening in the studio.
+      </p>
+    </div>
+    <div class="timeline">
+      {steps.map((step, index) => (
+        <div class="timeline-item">
+          <span class="timeline-index">0{index + 1}</span>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

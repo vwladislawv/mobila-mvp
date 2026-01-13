@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const heroStats = [
+  { value: "15+", label: "Years of craftsmanship" },
+  { value: "120+", label: "Completed installations" },
+  { value: "6 weeks", label: "Average turnaround" }
+];
+
+const features = [
+  {
+    title: "Bespoke design",
+    body: "Tailored joinery, built-in storage, and sculptural pieces that fit your floor plan exactly."
+  },
+  {
+    title: "Premium materials",
+    body: "We source European oak, walnut, and matte laminates that stand up to daily life."
+  },
+  {
+    title: "Precision install",
+    body: "Measured, fabricated, and installed by the same studio team for a seamless finish."
+  }
+];
+
+const highlights = [
+  "Floating kitchens with hidden storage",
+  "Hand-veneered wardrobes and walk-ins",
+  "Modular media walls and shelving",
+  "Custom hospitality bars and reception desks"
+];
+---
+
+<BaseLayout title="Home" description="Custom furniture studio delivering minimal, modern interiors and bespoke installations.">
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Custom furniture company</p>
+      <h1>Minimal forms. Precise joinery. Made for your space.</h1>
+      <p class="lede">
+        Mobila Studio designs and builds custom furniture for residential and boutique commercial spaces.
+        Every piece is tailored, refined, and delivered with white-glove installation.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="/portfolio">View portfolio</a>
+        <a class="button ghost" href="/services">See services</a>
+      </div>
+      <div class="stats">
+        {heroStats.map((stat) => (
+          <div class="stat">
+            <span class="stat-number">{stat.value}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-image"></div>
+      <div class="hero-card-body">
+        <h3>Signature pieces</h3>
+        <p>
+          From sculpted kitchen islands to warm wood libraries, we balance clean geometry with
+          tactile surfaces.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <h2>Design-forward furniture with a quiet confidence.</h2>
+      <p>
+        We work collaboratively with homeowners, architects, and developers to deliver furniture
+        that feels intentional. Our process blends space planning, material palettes, and smart
+        hardware to create a refined everyday experience.
+      </p>
+      <a class="text-link" href="/services">Explore our process</a>
+    </div>
+    <div class="feature-cards">
+      {features.map((feature) => (
+        <article class="card">
+          <h3>{feature.title}</h3>
+          <p>{feature.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Where we shine</h2>
+      <p>Full-service design, fabrication, and installation for modern interiors.</p>
+    </div>
+    <div class="pill-grid">
+      {highlights.map((item) => (
+        <span class="pill">{item}</span>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div>
+      <h2>Ready to elevate your space?</h2>
+      <p>Share your floor plan and inspiration. We will follow up with a tailored proposal.</p>
+    </div>
+    <a class="button primary" href="/contact">Start a project</a>
+  </section>
+</BaseLayout>
