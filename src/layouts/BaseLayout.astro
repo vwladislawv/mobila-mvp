@@ -5,6 +5,11 @@ const { title, description } = Astro.props;
 const metaTitle = title ? `${title} | Mobila Studio` : "Mobila Studio";
 const metaDescription = description ?? "Custom furniture crafted for modern spaces. Designed, built, and installed by Mobila Studio.";
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+const baseUrl = import.meta.env.BASE_URL;
+const homePath = baseUrl;
+const servicesPath = `${baseUrl}services/`;
+const portfolioPath = `${baseUrl}portfolio/`;
+const contactPath = `${baseUrl}contact/`;
 ---
 
 <!doctype html>
@@ -20,19 +25,19 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <a class="logo" href="/">Mobila Studio</a>
+        <a class="logo" href={homePath}>Mobila Studio</a>
         <nav class="nav">
-          <a href="/" class={Astro.url.pathname === "/" ? "active" : ""}>Home</a>
-          <a href="/services" class={Astro.url.pathname === "/services" ? "active" : ""}>Services</a>
-          <a href="/portfolio" class={Astro.url.pathname === "/portfolio" ? "active" : ""}>Portfolio</a>
-          <a href="/contact" class={Astro.url.pathname === "/contact" ? "active" : ""}>Contact</a>
+          <a href={homePath} class={Astro.url.pathname === homePath ? "active" : ""}>Home</a>
+          <a href={servicesPath} class={Astro.url.pathname === servicesPath ? "active" : ""}>Services</a>
+          <a href={portfolioPath} class={Astro.url.pathname === portfolioPath ? "active" : ""}>Portfolio</a>
+          <a href={contactPath} class={Astro.url.pathname === contactPath ? "active" : ""}>Contact</a>
         </nav>
-        <a class="cta" href="/contact">Book a consult</a>
+        <a class="cta" href={contactPath}>Book a consult</a>
       </header>
       <main>
         <slot />
@@ -40,9 +45,9 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
       <footer class="site-footer">
         <div>? {new Date().getFullYear()} Mobila Studio. Custom furniture crafted to order.</div>
         <div class="footer-links">
-          <a href="/services">Services</a>
-          <a href="/portfolio">Portfolio</a>
-          <a href="/contact">Contact</a>
+          <a href={servicesPath}>Services</a>
+          <a href={portfolioPath}>Portfolio</a>
+          <a href={contactPath}>Contact</a>
         </div>
       </footer>
     </div>
